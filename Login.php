@@ -21,6 +21,7 @@ $signupEmailError = "*";
 $signupPasswordError = "*";
 //kas keegi vajutas nuppu ja see on olemas
 
+
 if(isset ($_POST["signupPassword"])) {
 
 //on olemas
@@ -37,6 +38,16 @@ $signupPasswordError = "* Väli on kohustuslik!";
 }
 }
 
+$signupUserError = "*";
+if(isset ($_POST["signupUsername"])) {
+
+//on olemas
+//kas epost on tühi
+		if(empty ($_POST["signupUsername"])) {
+//on tühi
+					$signupUserError = "* Väli on kohustuslik!";
+		}
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +64,7 @@ $signupPasswordError = "* Väli on kohustuslik!";
 		<input name="loginEmail" type="email">
 
 		<br><br>
-
+<label for="loginPassword">Salasõna</label><br>
 		<input name="loginPassword" placeholder="Password" type="password">
 
 		<br><br>
@@ -69,8 +80,16 @@ $signupPasswordError = "* Väli on kohustuslik!";
 		<input name="signupEmail" type="email"> <?php echo $signupEmailError; ?>
 
 		<br><br>
-
+<label for="signupPassword">Salasõna</label><br>
 		<input name="signupPassword" placeholder="Password" type="password"> <?php echo $signupPasswordError; ?>
+<br>
+		<br><label for="signupUsername">Kasutajatunnus</label><br>
+
+		<input type="text" name="signupUsername" value=""> <?php echo $signupUserError; ?>
+<br>
+		<br><label for="Nimi">Nimi</label><br>
+
+		<input type="text" name="Nimi" value="">
 
 		<br><br>
 
@@ -78,6 +97,7 @@ $signupPasswordError = "* Väli on kohustuslik!";
 
 
 	</form>
-
+	<br><br>
+Tahan teha portfoolio lehekest kus saaks vaadata minu tehtud töid
 </body>
 </html>
